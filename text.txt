@@ -1,0 +1,4 @@
+Đã thực hiện được các công việc:
+	- Tách Delegate, DataSource thành các class hoặc tách thành extension
+	- Hiển thị hai loại dữ liệu trên cùng một TableViewController bằng cách tách class
+	Thực hiện thêm, sửa và xoá dữ liệu trên hai bảng dữ liệu. Xoá hết dữ liệu thì hiển 	thị "NO DATA"
