@@ -20,6 +20,12 @@ class HeadlineTableViewCell: UITableViewCell {
     @IBOutlet weak var headlineTitleLabel: UILabel!
     @IBOutlet weak var headlineTextLabel: UILabel!
     @IBOutlet weak var headlineImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        headlineTextLabel.text = ""
+        headlineTitleLabel.text = ""
+        backgroundColor = UIColor.white
+    }
 }
 
 class TableViewController: UITableViewController {
@@ -60,10 +66,29 @@ class TableViewController: UITableViewController {
         
         let headline = headlines[indexPath.row]
         cell.headlineTitleLabel?.text = headline.title
+        cell.headlineTitleLabel.textColor = UIColor.red
         cell.headlineTextLabel?.text = headline.text
         cell.headlineImageView?.image = UIImage(named: headline.image)
         
+        // Set color for backgroud when user touch up inside
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        cell.selectedBackgroundView = backgroundView
+        
+        indexPath.row % 2 == 0 ? (cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.3712863116)) : (cell.backgroundColor = UIColor.white)
+        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? ViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let headline = headlines[indexPath.row]
+            destination?.dataTitleLabel = headline.title
+            destination?.dataTextLabel = headline.text
+            destination?.imageView = UIImage(named: headline.image)
+        }
+        
     }
     
     

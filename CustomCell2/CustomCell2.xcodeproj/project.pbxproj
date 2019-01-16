@@ -13,6 +13,7 @@
 		CE0153AE21E83DAE0004266A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0153AC21E83DAE0004266A /* LaunchScreen.storyboard */; };
 		CE0153B921E83DAE0004266A /* CustomCell2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0153B821E83DAE0004266A /* CustomCell2Tests.swift */; };
 		CE0153C421E83E830004266A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0153C321E83E830004266A /* TableViewController.swift */; };
+		CE59771221EE133B00526FD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE59771121EE133B00526FD3 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		CE0153B821E83DAE0004266A /* CustomCell2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell2Tests.swift; sourceTree = "<group>"; };
 		CE0153BA21E83DAE0004266A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0153C321E83E830004266A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CE59771121EE133B00526FD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				CE0153A321E83DAD0004266A /* AppDelegate.swift */,
 				CE0153C321E83E830004266A /* TableViewController.swift */,
+				CE59771121EE133B00526FD3 /* ViewController.swift */,
 				CE0153A721E83DAD0004266A /* Main.storyboard */,
 				CE0153AA21E83DAE0004266A /* Assets.xcassets */,
 				CE0153AC21E83DAE0004266A /* LaunchScreen.storyboard */,
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE59771221EE133B00526FD3 /* ViewController.swift in Sources */,
 				CE0153C421E83E830004266A /* TableViewController.swift in Sources */,
 				CE0153A421E83DAD0004266A /* AppDelegate.swift in Sources */,
 			);
