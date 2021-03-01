@@ -111,6 +111,43 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zKN-xN-0XB">
+                                <rect key="frame" x="327" y="241.5" width="40" height="184"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEr-vf-DWw">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="eiU-uQ-JAz"/>
+                                            <constraint firstAttribute="width" constant="40" id="zfX-en-617"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="tapSelectColor:" destination="aUO-oc-FQV" eventType="touchUpInside" id="mdR-zb-pan"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-V0-knt">
+                                        <rect key="frame" x="0.0" y="48" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="tapSelectColor:" destination="aUO-oc-FQV" eventType="touchUpInside" id="l1M-QD-JeA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOs-4T-2gN">
+                                        <rect key="frame" x="0.0" y="96" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="tapSelectColor:" destination="aUO-oc-FQV" eventType="touchUpInside" id="3we-qK-Z9K"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ8-kn-G9b">
+                                        <rect key="frame" x="0.0" y="144" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="tapSelectColor:" destination="aUO-oc-FQV" eventType="touchUpInside" id="69z-pI-9tl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0E-il-O6X">
                                 <rect key="frame" x="327" y="619" width="40" height="40"/>
                                 <constraints>
@@ -128,7 +165,9 @@
                             <constraint firstItem="uHN-1c-mwD" firstAttribute="trailing" secondItem="s0E-il-O6X" secondAttribute="trailing" constant="8" id="29M-vZ-TZs"/>
                             <constraint firstAttribute="trailing" secondItem="fng-uM-aKm" secondAttribute="trailing" id="871-Ni-98u"/>
                             <constraint firstItem="uHN-1c-mwD" firstAttribute="trailing" secondItem="xUY-au-UjR" secondAttribute="trailing" constant="16" id="Esu-r5-80t"/>
+                            <constraint firstItem="uHN-1c-mwD" firstAttribute="trailing" secondItem="zKN-xN-0XB" secondAttribute="trailing" constant="8" id="Fmg-Aw-QAq"/>
                             <constraint firstItem="fng-uM-aKm" firstAttribute="leading" secondItem="kFr-6l-lZZ" secondAttribute="leading" id="Lh1-v8-Bby"/>
+                            <constraint firstItem="zKN-xN-0XB" firstAttribute="centerY" secondItem="kFr-6l-lZZ" secondAttribute="centerY" id="NBL-Py-Kwu"/>
                             <constraint firstItem="fng-uM-aKm" firstAttribute="bottom" secondItem="uHN-1c-mwD" secondAttribute="bottom" id="dr0-1z-tfF"/>
                             <constraint firstItem="xUY-au-UjR" firstAttribute="leading" secondItem="uHN-1c-mwD" secondAttribute="leading" constant="16" id="gY7-jf-vZ2"/>
                             <constraint firstItem="xUY-au-UjR" firstAttribute="top" secondItem="uHN-1c-mwD" secondAttribute="top" constant="16" id="pXw-Cm-C8Z"/>
@@ -142,6 +181,10 @@
                         <outlet property="scrollView" destination="fng-uM-aKm" id="cBM-Nr-RWX"/>
                         <outlet property="textLabel" destination="Ys8-9h-uAc" id="N7M-G3-s4A"/>
                         <outlet property="titleLabel" destination="WSD-l1-M2W" id="m1s-6O-rea"/>
+                        <outletCollection property="buttons" destination="QEr-vf-DWw" collectionClass="NSMutableArray" id="wQu-DI-55E"/>
+                        <outletCollection property="buttons" destination="bSc-V0-knt" collectionClass="NSMutableArray" id="poe-fT-AZk"/>
+                        <outletCollection property="buttons" destination="oOs-4T-2gN" collectionClass="NSMutableArray" id="aNj-VJ-hfU"/>
+                        <outletCollection property="buttons" destination="aZ8-kn-G9b" collectionClass="NSMutableArray" id="uI8-xc-Z4k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpW-PX-thg" userLabel="First Responder" sceneMemberID="firstResponder"/>

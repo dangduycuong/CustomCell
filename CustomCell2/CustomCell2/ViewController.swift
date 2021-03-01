@@ -8,8 +8,41 @@
 
 import UIKit
 
+enum ChooseColor {
+    case blue
+    case red
+    case purple
+    case yellow
+    
+    static let all = [blue, red, purple, yellow]
+    
+    var value: UIColor {
+        get {
+            switch self {
+            case .blue:
+                return .blue
+            case .red:
+                return .red
+            case .purple:
+                return .purple
+            case .yellow:
+                return .yellow
+            }
+        }
+    }
+}
+
+struct MyInfo {
+    private let add = "private"
+    let string1 = "string1"
+    let string2 = "string2"
+}
+
 class ViewController: UIViewController {
     //MARK: Properties
+    
+    @IBOutlet var buttons: [UIButton]!
+    
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.minimumZoomScale = 0.2
@@ -21,13 +54,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
+    var color = ChooseColor.blue
     var dataTitleLabel: String?
     var dataTextLabel: String?
     var imageView: UIImage?
     var indexImage: Int = 0
+    var saveView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let count = buttons.count
+        for i in 0..<count {
+            buttons[i].layer.cornerRadius = buttons[i].bounds.width / 2
+            buttons[i].tag = i
+        }
+        let info = MyInfo()
+        print(info)
         
         if let dataTitleLabel = dataTitleLabel, let dataTextLabel = dataTextLabel, let imageView = imageView {
             titleLabel.text = dataTitleLabel
@@ -54,6 +97,20 @@ class ViewController: UIViewController {
         self.view.addSubview(lightBulb)
     }
     
+    func createView() {
+        indexImage += 10
+        let width = UIScreen.main.bounds.width / 3
+        let tempView = UIView(frame: CGRect(x: view.center.x - (width / 2), y: CGFloat(indexImage), width: width, height: width))
+        tempView.layer.cornerRadius = width / 2
+        setShadowView(view: tempView)
+        
+        tempView.backgroundColor = color.value
+        tempView.isUserInteractionEnabled = true
+        tempView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan(recognizer:))))
+        saveView = tempView
+        self.view.addSubview(tempView)
+    }
+    
     @objc func handlePan(recognizer: UIPanGestureRecognizer) {
         
         let translation = recognizer.translation(in: self.view)
@@ -63,6 +120,36 @@ class ViewController: UIViewController {
         }
         
         recognizer.setTranslation(.zero, in: self.view)
+    }
+    
+    
+    @IBAction func tapSelectColor(_ sender: UIButton) {
+        color = ChooseColor.all[sender.tag]
+        for item in buttons {
+            if item == sender {
+                item.alpha = 1
+                setShadowButton(button: item, shadowOpacity: 2)
+            } else {
+                setShadowButton(button: item, shadowOpacity: 0)
+                item.alpha = 0.75
+            }
+        }
+        
+        createView()
+    }
+    
+    func setShadowView(view: UIView) {
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 1
+    }
+    
+    func setShadowButton(button: UIButton, shadowOpacity: Float) {
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = shadowOpacity //0.8
+        button.layer.shadowOffset = .zero
+        button.layer.shadowRadius = 1
     }
     
 }

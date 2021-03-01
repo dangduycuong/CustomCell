@@ -83,6 +83,7 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? ViewController
         if let indexPath = tableView.indexPathForSelectedRow {
+            title = ""
             let headline = headlines[indexPath.row]
             destination?.dataTitleLabel = headline.title
             destination?.dataTextLabel = headline.text
